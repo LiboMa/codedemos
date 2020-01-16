@@ -12,3 +12,6 @@ def hello_world():
     <p>{}</p>
     '''.format(dt.datetime.now())
     return message 
+
+if __name__ == '__main__':
+    app.run(debug=True)
