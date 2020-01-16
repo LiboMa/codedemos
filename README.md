@@ -2,6 +2,7 @@
 
 ## Links
  * [refer link](https://zhuanlan.zhihu.com/p/78432719)
+ * https://yeasy.gitbooks.io/docker_practice/install/mirror.html
 
 ### installation
 
