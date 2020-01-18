@@ -190,7 +190,7 @@
           "type": "Source",
           "sourceStrategy": {
             "from": {
-              "kind": "ImageStreamTag",
+              "kind": "DockerImage",
               "name": "python:3.6"
             }
           }
@@ -198,7 +198,7 @@
         "output": {
           "to": {
             "kind": "ImageStreamTag",
-            "name": "python-flask:latest"
+            "name": "python-flask-prod:latest"
           }
         },
         "resources": {}
