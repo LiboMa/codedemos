@@ -4,7 +4,7 @@
   "metadata": {
     "name": "python-flask-demo",
     "annotations": {
-      "description": "This example shows how to create a simple nodejs application in openshift origin v3",
+      "description": "This example shows how to create a simple python-flask application in openshift origin v3",
       "iconClass": "icon-nodejs",
       "tags": "instant-app,python-flask"
     }
@@ -40,12 +40,12 @@
       "kind": "Route",
       "apiVersion": "v1",
       "metadata": {
-        "name": "ex-frontend"
+        "name": "ex-frontend-prod"
       },
       "spec": {
         "to": {
           "kind": "Service",
-          "name": "ex-frontend"
+          "name": "ex-frontend-prod"
         },
         "tls": {
           "termination": "edge"
@@ -73,11 +73,11 @@
             "imageChangeParams": {
               "automatic": true,
               "containerNames": [
-                "python:3.6"
+                "python-flask"
               ],
               "from": {
                 "kind": "ImageStreamTag",
-                "name": "python-flask:prod"
+                "name": "python:3.6"
               }
             }
           },
@@ -123,29 +123,6 @@
             "dnsPolicy": "ClusterFirst"
           }
         }
-      }
-    },
-    {
-      "kind": "Service",
-      "apiVersion": "v1",
-      "metadata": {
-        "name": "ex-frontend"
-      },
-      "spec": {
-        "ports": [
-          {
-            "name": "web",
-            "protocol": "TCP",
-            "port": 8080,
-            "targetPort": 8080,
-            "nodePort": 0
-          }
-        ],
-        "selector": {
-          "name": "ex-frontend"
-        },
-        "type": "ClusterIP",
-        "sessionAffinity": "None"
       }
     },
     {
@@ -225,79 +202,6 @@
           }
         },
         "resources": {}
-      }
-    },
-    {
-      "kind": "DeploymentConfig",
-      "apiVersion": "v1",
-      "metadata": {
-        "name": "ex-frontend"
-      },
-      "spec": {
-        "strategy": {
-          "type": "Rolling",
-          "rollingParams": {
-            "updatePeriodSeconds": 1,
-            "intervalSeconds": 1,
-            "timeoutSeconds": 120
-          }
-        },
-        "triggers": [
-          {
-            "type": "ImageChange",
-            "imageChangeParams": {
-              "automatic": false,
-              "containerNames": [
-                "python-flask"
-              ],
-              "from": {
-                "kind": "ImageStreamTag",
-                "name": "python-flask:latest"
-              }
-            }
-          },
-          {
-            "type": "ConfigChange"
-          }
-        ],
-        "replicas": 1,
-        "selector": {
-          "name":"ex-frontend"
-          },
-        "template": {
-          "metadata": {
-            "labels": {
-              "name": "ex-frontend"
-            }
-          },
-          "spec": {
-            "containers": [
-              {
-                "name": "python-flask",
-                "image": " ",
-                "ports": [
-                  {
-                    "containerPort": 8080,
-                    "protocol": "TCP"
-                  }
-                ],
-                "resources": {
-                  "limits": {
-                    "memory": "${MEMORY_LIMIT}"
-                  }
-                },
-                "terminationMessagePath": "/dev/termination-log",
-                "imagePullPolicy": "IfNotPresent",
-                "securityContext": {
-                  "capabilities": {},
-                  "privileged": false
-                }
-              }
-            ],
-            "restartPolicy": "Always",
-            "dnsPolicy": "ClusterFirst"
-          }
-        }
       }
     }
   ],
