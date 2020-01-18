@@ -11,7 +11,7 @@ import datetime as dt
 def index():
     message = '''
     <body>
-    <p><h2>Python-flask project. Running on openshift(OKD env all-in-one) </h2></p>
+    <p><h2>Python-flask project. </h2></p>
     <p><b>// Python-flask project. Running on openshift(OKD env all-in-one) //</b></p>
     <p> //OS: CentOs 7, Openshift 3.11//</p>
     <p>{}</p></body>
