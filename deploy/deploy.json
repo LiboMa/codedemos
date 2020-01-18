@@ -188,9 +188,9 @@
         },
         "strategy": {
           "type": "Source",
-          "sourceStrategy": {
+          "dockerStrategy": {
             "from": {
-              "kind": "DockerImage",
+              "kind": "ImageStreamTag",
               "name": "python:3.6"
             }
           }
