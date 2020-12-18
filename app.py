@@ -6,6 +6,7 @@ import time
 app = Flask(__name__)
 import json
 import datetime as dt
+import os
 import pprint
 
 
@@ -13,17 +14,16 @@ import pprint
 def index():
     message = '''
     <body>
-    <p><h2>Python-flask project. </h2></p>
-    <p><b>// Python-flask project. Running on openshift(OKD env all-in-one) //</b></p>
-    <p> //OS: CentOs 7, Openshift 3.11//</p>
+    <p><h2>Python-flask project V2. </h2></p>
+    <p>{} </p>
     <p>{}</p></body>
-    '''.format(dt.datetime.now())
+    '''.format(os.uname().version, dt.datetime.now())
     return message
 
 
 @app.route('/api/mock')
 def test_api():
-    data = {"message": "Hi there, this app is running on ODK-openshift 3.11"}
+    data = {"message": "Hi there, this app is running on k8s cluster"}
     return json.dumps(data)
 
 
