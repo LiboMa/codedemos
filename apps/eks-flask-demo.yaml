@@ -1,19 +1,18 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: 'eks-flask-demo'
+  name: 'eks-flask-demo-a'
+  namespace: argocd
 spec:
   destination:
     name: 'in-cluster'
     namespace: eks-flask-demo
+    server: https://kubernetes.default.svc
+  project: default
   source:
     repoURL: 'https://github.com/LiboMa/codedemos.git'
     path: 'charts'
-    targetRevision: HEAD
-    helm:
-      valueFiles:
-      - values.yaml
-  project: default
+    targetRevision: master
   syncPolicy:
     syncOptions:
     - CreateNamespace=true
