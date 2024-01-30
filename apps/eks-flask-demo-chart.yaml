@@ -11,7 +11,7 @@ spec:
   project: default
   source:
     repoURL: 'https://github.com/LiboMa/codedemos'
-    path: 'https://github.com/LiboMa/codedemos/charts/chartDev'
+    path: 'chartDev'
     targetRevision: master
     helm:
       valueFiles:
