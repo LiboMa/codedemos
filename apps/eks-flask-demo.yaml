@@ -7,8 +7,8 @@ spec:
     name: 'in-cluster'
     namespace: eks-flask-demo
   source:
-    path: 'chart'
     repoURL: 'https://github.com/LiboMa/codedemos.git'
+    path: 'charts'
     targetRevision: HEAD
     helm:
       valueFiles:
@@ -16,4 +16,4 @@ spec:
   project: default
   syncPolicy:
     syncOptions:
-      - CreateNamespace=true
+    - CreateNamespace=true
