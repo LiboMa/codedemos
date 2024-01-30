@@ -15,7 +15,7 @@ def index():
     message = '''
     <body>
     <H1>==ArgoCD Dashboard==</H1>
-    <p><h2>Python-flask project v4. </h2></p>
+    <p><h2>Python-flask project v2. </h2></p>
     <p>you are hitting: {} Rnning on AWS EKS</p>
     <p>{}</p>
     <p></p></body>
