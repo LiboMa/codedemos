@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: eks-flask-demo-a
-        image: {{.Values.image.repository }}:{{ .Values.image.tag }}
+        image: malibo8407/eks-poc-flask:20240130
         ports:
         - containerPort: 8080
