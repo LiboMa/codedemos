@@ -14,10 +14,11 @@ import pprint
 def index():
     message = '''
     <body>
-    <p><h2>Python-flask project V2. </h2></p>
-    <p>{} </p>
-    <p>{}</p></body>
-    '''.format(os.uname().version, dt.datetime.now())
+    <p><h2>Python-flask project V3. </h2></p>
+    <p>you are hitting: {} Rnning on AWS EKS</p>
+    <p>{}</p>
+    <p></p></body>
+    '''.format(os.uname().nodename, dt.datetime.now())
     return message
 
 
@@ -33,8 +34,9 @@ def test_api_postdata():
         data = {"message": "Hi there, flask app, postdata api echo message."}
         return json.dumps(data)
     if request.method == 'POST':
-        data = request.json
         print(pprint.pprint(dir(request)))
+        data = request.get_json()
+        print(data)
         #response = {'timestamp':time.time(), 'message':data.decode('utf-8')}
         response = {'timestamp':time.ctime(), 'message': data}
         return  jsonify(response)
