@@ -5,15 +5,15 @@ metadata:
 spec:
   destination:
     name: 'in-cluster'
-    namespace: 'prod'
+    namespace: eks-flask-demo
   source:
     path: 'chart'
-    repoURL: 'https://github.com/LiboMa/codedemos'
-    targetRevision: master
+    repoURL: 'https://github.com/LiboMa/codedemos.git'
+    targetRevision: HEAD
     helm:
       valueFiles:
       - values.yaml
-  project: 'default'
+  project: default
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
