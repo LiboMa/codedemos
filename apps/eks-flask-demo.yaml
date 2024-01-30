@@ -10,8 +10,8 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    repoURL: 'https://github.com/LiboMa/codedemos.git'
-    path: 'charts'
+    repoURL: 'https://github.com/LiboMa/codedemos'
+    path: '/charts/'
     targetRevision: master
   syncPolicy:
     syncOptions:
