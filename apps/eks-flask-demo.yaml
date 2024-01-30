@@ -7,11 +7,11 @@ spec:
   destination:
     name: 'in-cluster'
     namespace: eks-flask-demo
-    server: https://kubernetes.default.svc
+    # server: https://kubernetes.default.svc
   project: default
   source:
     repoURL: 'https://github.com/LiboMa/codedemos'
-    path: '/charts/'
+    path: 'charts'
     targetRevision: master
   syncPolicy:
     syncOptions:
