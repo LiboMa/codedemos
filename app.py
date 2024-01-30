@@ -14,7 +14,8 @@ import pprint
 def index():
     message = '''
     <body>
-    <p><h2>Python-flask project V3. </h2></p>
+    <H1>==ArgoCD Dashboard==</H1>
+    <p><h2>Python-flask project v4. </h2></p>
     <p>you are hitting: {} Rnning on AWS EKS</p>
     <p>{}</p>
     <p></p></body>
