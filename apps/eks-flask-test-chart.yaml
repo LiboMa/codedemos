@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: 'eks-flask-demo-a'
+  name: 'eks-flask-test'
   namespace: argocd
 spec:
   destination:
