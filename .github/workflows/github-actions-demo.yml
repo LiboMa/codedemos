@@ -1,6 +1,7 @@
 name: CI-Pipeline
-on: 
-   branches:
+on:
+  push:
+    branches:
     - master
     paths:
     - 'app/*.py'
