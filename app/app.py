@@ -13,24 +13,24 @@ import pprint
 @app.route('/')
 def index():
     message = '''
-    <body>
+    <html><body>
     <H1>==ArgoCD Dashboard==</H1>
     <p><h2>Python-flask project v2. </h2></p>
     <p>you are hitting: <h2>{}</h2> Rnning on AWS EKS</p>
     <p><b>Datetime: </b>{}</p>
-   # <pre>
-   #        |
-   #       / \
-   #      / _ \
-   #     |.o '.|
-   #     |'._.'|
-   #     |     |
-   #    ,'|  | |`.
-   #   /  |  | |  \
-   #   |,-'--|--'-.|
-   ## </pre>
+   <pre>
+          |
+         / \
+        / _ \
+       |.o '.|
+       |'._.'|
+       |     |
+      ,'|  | |`.
+     /  |  | |  \
+     |,-'--|--'-.|
+    </pre>
     <p>===Automated pipeline trigger by https://github.com/LiboMa/codedemos.git === </p>
-    <p></p></body>
+    <p></p></body></html>
     '''.format(os.uname().nodename, dt.datetime.now())
     return message
 
