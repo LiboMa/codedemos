@@ -6,6 +6,7 @@ on:
       - test
     paths:
       - 'app/*.py'
+      - '.github/*'
 
 env:
   PROJECT_ID: eks-poc-flask
@@ -39,7 +40,7 @@ jobs:
         - name: Define TAG and HELM_PACKAGE
           run: |
             #TAG=$(bash version.sh)
-            TAG=${{ github.sha }}
+            TAG="${GITHUB_REF##*/}-${{ github.sha }}"
             HELM_PACKAGE=${{ env.REPO_NAME }}-${TAG}.tgz
             echo "TAG=${TAG}" >> $GITHUB_ENV
             echo "HELM_PACKAGE=${HELM_PACKAGE}" >> $GITHUB_ENV
@@ -63,9 +64,11 @@ jobs:
 
       - name: Update Image Tag Values
         run: |
-          CHART_DIR="chartDev"
+          branch=${GITHUB_REF##*/}
+          [ $branch == 'test' ] && CHART_DIR="chartTest"
+          [ $branch == 'master' ] && CHART_DIR="chartProd"
           #new_image_tag=${{ env.TAG }}
-          new_image_tag=${{ github.sha }}
+          new_image_tag="${GITHUB_REF##*/}${{ github.sha }}"
 
           # Update the values.yaml file with the new image tag
           sed -i "s/^  tag: .*/  tag: $new_image_tag/" "$CHART_DIR/values.yaml"
