@@ -6,7 +6,7 @@ on:
       - test
     paths:
       - 'app/*.py'
-      - '.github/*'
+      - '.github/workflows/*'
 
 env:
   PROJECT_ID: eks-poc-flask
