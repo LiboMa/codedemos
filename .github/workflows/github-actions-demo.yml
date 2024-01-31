@@ -2,10 +2,10 @@ name: CI-Pipeline
 on:
   push:
     branches:
-    - master
-    - test 
+      - master
+      - test 
     paths:
-    - 'app/*.py'
+      - 'app/*.py'
 
 env:
   PROJECT_ID: eks-poc-flask
@@ -51,8 +51,6 @@ jobs:
             file: ./app/Dockerfile
             push: true
             tags: ${{ secrets.DOCKER_USERNAME }}/${{env.PROJECT_ID}}:${{ env.TAG }}
-
-
   update:
       name: Update Helm Manifests
       runs-on: ubuntu-latest
