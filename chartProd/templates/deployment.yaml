@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: eks-flask-demo-prod
+  name: eks-flask-prod
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: eks-flask-demo-prod # Add this label
+      app: eks-flask-prod # Add this label
   template:
     metadata:
       labels:
-        app: eks-flask-demo-prod
+        app: eks-flask-prod
     spec:
       containers:
-      - name: eks-flask-demo-prod
+      - name: eks-flask-prod
         image: {{.Values.image.repository }}:{{ .Values.image.tag }}
         ports:
         - containerPort: 8080
