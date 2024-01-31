@@ -18,6 +18,17 @@ def index():
     <p><h2>Python-flask project v2. </h2></p>
     <p>you are hitting: <h2>{}</h2> Rnning on AWS EKS</p>
     <p><b>Datetime: </b>{}</p>
+   # <pre>
+   #        |
+   #       / \
+   #      / _ \
+   #     |.o '.|
+   #     |'._.'|
+   #     |     |
+   #    ,'|  | |`.
+   #   /  |  | |  \
+   #   |,-'--|--'-.|
+   ## </pre>
     <p>===Automated pipeline trigger by https://github.com/LiboMa/codedemos.git === </p>
     <p></p></body>
     '''.format(os.uname().nodename, dt.datetime.now())
