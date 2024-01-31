@@ -38,7 +38,8 @@ jobs:
 
         - name: Define TAG and HELM_PACKAGE
           run: |
-            TAG=$(bash version.sh)
+            #TAG=$(bash version.sh)
+            TAG=${{ github.sha }}
             HELM_PACKAGE=${{ env.REPO_NAME }}-${TAG}.tgz
             echo "TAG=${TAG}" >> $GITHUB_ENV
             echo "HELM_PACKAGE=${HELM_PACKAGE}" >> $GITHUB_ENV
@@ -50,8 +51,8 @@ jobs:
             context: ./app
             file: ./app/Dockerfile
             push: true
-            tags: ${{ secrets.DOCKER_USERNAME }}/${{env.PROJECT_ID}}:${{ env.TAG }}
-  update:
+            tags: ${{ secrets.DOCKER_USERNAME }}/${{env.PROJECT_ID}}:${{ env.TAG }}, ${{ secrets.DOCKER_USERNAME }}/${{env.PROJECT_ID}}:latest
+  deploy:
       name: Update Helm Manifests
       runs-on: ubuntu-latest
       needs: build
@@ -63,7 +64,8 @@ jobs:
       - name: Update Image Tag Values
         run: |
           CHART_DIR="chartDev"
-          new_image_tag=${{ env.TAG }}
+          #new_image_tag=${{ env.TAG }}
+          new_image_tag=${{ github.sha }}
 
           # Update the values.yaml file with the new image tag
           sed -i "s/^  tag: .*/  tag: $new_image_tag/" "$CHART_DIR/values.yaml"
