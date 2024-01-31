@@ -68,7 +68,9 @@ jobs:
           [ $branch == 'test' ] && CHART_DIR="chartTest"
           [ $branch == 'master' ] && CHART_DIR="chartProd"
           #new_image_tag=${{ env.TAG }}
-          new_image_tag="${GITHUB_REF##*/}${{ github.sha }}"
+          echo "---> $GITHUB_ENV"
+          echo "---> $new_image_tag"
+          new_image_tag="${GITHUB_REF##*/}-${{ github.sha }}"
 
           # Update the values.yaml file with the new image tag
           sed -i "s/^  tag: .*/  tag: $new_image_tag/" "$CHART_DIR/values.yaml"
