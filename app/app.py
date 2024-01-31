@@ -16,8 +16,9 @@ def index():
     <body>
     <H1>==ArgoCD Dashboard==</H1>
     <p><h2>Python-flask project v2. </h2></p>
-    <p>you are hitting: {} Rnning on AWS EKS</p>
-    <p>{}</p>
+    <p>you are hitting: <h2>{}</h2> Rnning on AWS EKS</p>
+    <p><b>Datetime: </b>{}</p>
+    <p>===Automated pipeline trigger by https://github.com/LiboMa/codedemos.git === </p>
     <p></p></body>
     '''.format(os.uname().nodename, dt.datetime.now())
     return message
