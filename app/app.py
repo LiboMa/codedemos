@@ -25,8 +25,7 @@ def index():
 
 @app.route('/api/mock')
 def test_api():
-    data = {"message": "Hi there, this app is running on k8s cluster."
-            "timestamp":dt.datetime.now()}
+    data = {"message": "Hi there, this app is running on k8s cluster.", "timestamp": t.datetime.now()}
     return json.dumps(data)
 
 
