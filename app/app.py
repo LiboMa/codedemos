@@ -22,7 +22,7 @@ def index():
 
     message = '''
     <html><body>
-    <H1>==ArgoCD Dashboard==</H1>
+    <H1 color="#3cb371">==ArgoCD Dashboard ==</H1>
     <p><h2>Python-flask project v2. </h2></p>
     <p><h2>With Git actions </h2></p>
     <p>you are hitting: <h2>{}</h2> Rnning on AWS EKS</p>
@@ -34,7 +34,7 @@ def index():
         POD_NAMESPACE: {} <br/>
     </p>
     <p>===Automated pipeline trigger by https://github.com/LiboMa/codedemos.git === </p>
-    <p></p></body></html>
+    <p> </p></body></html>
     '''.format(os.uname().nodename, dt.datetime.now(),node_name, pod_name, pod_ip, pod_namespace)
     return message
 
