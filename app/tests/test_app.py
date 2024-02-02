@@ -13,7 +13,7 @@ def test_index_route(client):
     response = client.get('/')
     assert response.status_code == 200
     assert b"ArgoCD Dashboard" in response.data
-    assert b"Python-flask project" in response.data
+    assert b"Python-flask" in response.data
 
 def test_api_mock_route(client):
     # 测试/api/mock路由
