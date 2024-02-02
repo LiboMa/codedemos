@@ -42,18 +42,17 @@ def index():
 @app.route('/api/mock')
 def test_api():
     data = {"message": "Hi there, this app is running on eks/k8s cluster. change from test"}
-    return json.dumps(data)
+    return jsonify(data)
 
 
 @app.route('/api/postdata', methods=('GET','POST'))
-def test_api_postdata():
+def api_postdata():
     if request.method == 'GET':
         data = {"message": "Hi there, flask app, postdata api echo message."}
         return json.dumps(data)
     if request.method == 'POST':
         print(pprint.pprint(dir(request)))
         data = request.get_json()
-        print(data)
         #response = {'timestamp':time.time(), 'message':data.decode('utf-8')}
         response = {'timestamp':time.ctime(), 'message': data}
         return  jsonify(response)
