@@ -22,8 +22,8 @@ def index():
 
     message = '''
     <html><body>
-    <H1>==ArgoCD Dashboard==</H1>
-    <p><h2>Python-flask project v2. </h2></p>
+    <H1>==ArgoCD Dashboard ==</H1>
+    <p><color="red"><h2>Python-flask project *v3Beta*. </h2></color></p>
     <p><h2>With Git actions </h2></p>
     <p>you are hitting: <h2>{}</h2> Rnning on AWS EKS</p>
     <p><b>Datetime: </b>{}</p>
@@ -34,7 +34,7 @@ def index():
         POD_NAMESPACE: {} <br/>
     </p>
     <p>===Automated pipeline trigger by https://github.com/LiboMa/codedemos.git === </p>
-    <p></p></body></html>
+    <p> </p></body></html>
     '''.format(os.uname().nodename, dt.datetime.now(),node_name, pod_name, pod_ip, pod_namespace)
     return message
 
@@ -42,18 +42,17 @@ def index():
 @app.route('/api/mock')
 def test_api():
     data = {"message": "Hi there, this app is running on eks/k8s cluster. change from test"}
-    return json.dumps(data)
+    return jsonify(data)
 
 
 @app.route('/api/postdata', methods=('GET','POST'))
-def test_api_postdata():
+def api_postdata():
     if request.method == 'GET':
         data = {"message": "Hi there, flask app, postdata api echo message."}
         return json.dumps(data)
     if request.method == 'POST':
         print(pprint.pprint(dir(request)))
         data = request.get_json()
-        print(data)
         #response = {'timestamp':time.time(), 'message':data.decode('utf-8')}
         response = {'timestamp':time.ctime(), 'message': data}
         return  jsonify(response)
