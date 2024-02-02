@@ -23,7 +23,7 @@ def index():
     message = '''
     <html><body>
     <H1>==ArgoCD Dashboard ==</H1>
-    <p><color="red"><h2>Python-flask project v3. </h2></color></p>
+    <p><color="red"><h2>Python-flask project *v3Beta*. </h2></color></p>
     <p><h2>With Git actions </h2></p>
     <p>you are hitting: <h2>{}</h2> Rnning on AWS EKS</p>
     <p><b>Datetime: </b>{}</p>
