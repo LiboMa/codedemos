@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: 'eks-flask-prod'
+  namespace: argocd
+spec:
+  destination:
+    name: 'in-cluster'
+    namespace: eks-flask-prod
+    # server: https://kubernetes.default.svc
+  project: default
+  source:
+    repoURL: 'https://github.com/LiboMa/codedemos'
+    path: 'chartProd'
+    targetRevision: master
+    helm:
+      valueFiles:
+      - values.yaml
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
