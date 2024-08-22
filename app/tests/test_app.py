@@ -20,10 +20,10 @@ def test_api_mock_route(client):
     response = client.get('/api/mock')
     assert response.status_code == 200
     data = response.get_json()
-    assert data["message"] == "Hi there, this app is running on eks/k8s cluster. change from test"
+    assert data["message"] == "Hi there, this app is running on eks/k8s cluster. change from test!!"
 
 def test_api_postdata(client):
-    # 测试/api/postdata 
+    # 测试/api/postdata
     payload = {"key":"value"}
     response = client.post('/api/postdata', json=payload)
     assert response.status_code == 200

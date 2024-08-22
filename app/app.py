@@ -238,7 +238,7 @@ def index():
 
 @app.route('/api/mock')
 def test_api():
-    data = {"message": "Hi THERE, this app is running on eks/k8s cluster. change from test"}
+    data = {"message": "Hi there, this app is running on eks/k8s cluster. change from test!!"}
     return jsonify(data)
 
 
