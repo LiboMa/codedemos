@@ -1,4 +1,4 @@
-#!/usr/bin/env python 
+#!/usr/bin/env python
 
 from flask import Flask, request, redirect, render_template, jsonify
 import time
@@ -36,7 +36,7 @@ def index():
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="static/bootstrap.css" rel="stylesheet">
 
-     
+
   </head>
   <body>
     <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
@@ -90,7 +90,7 @@ def index():
       </ul>
     </div>
 
-    
+
 <header data-bs-theme="dark">
   <div class="collapse text-bg-dark" id="navbarHeader">
     <div class="container">
@@ -192,7 +192,7 @@ def index():
                     POD_NAMESPACE: </p>
                 </div>
             </div>
-        
+
             </div>
               <div class="d-flex justify-content-between align-items-center">
 
@@ -238,7 +238,7 @@ def index():
 
 @app.route('/api/mock')
 def test_api():
-    data = {"message": "Hi there, this app is running on eks/k8s cluster. change from test"}
+    data = {"message": "Hi THERE, this app is running on eks/k8s cluster. change from test"}
     return jsonify(data)
 
 
@@ -253,8 +253,8 @@ def api_postdata():
         #response = {'timestamp':time.time(), 'message':data.decode('utf-8')}
         response = {'timestamp':time.ctime(), 'message': data}
         return  jsonify(response)
-    return 
-    
+    return
+
 
 
 if __name__ == '__main__':

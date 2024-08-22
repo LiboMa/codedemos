@@ -7,4 +7,5 @@ RUN pip install --upgrade pip && pip install -r requirements.txt -i http://mirro
 #RUN pip install -r requirements.txt 
 #ENTRYPOINT ["python"]
 #CMD ["flask run"]
+#CMD ["gunicorn", "app:app", "-c", "./gunicorn.conf.py"]
 CMD ["gunicorn", "app:app", "-c", "./gunicorn.conf.py"]
