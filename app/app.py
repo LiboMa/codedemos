@@ -1,4 +1,4 @@
-#!/usr/bin/env python 
+#!/usr/bin/env python
 
 from flask import Flask, request, redirect, render_template, jsonify
 import time
@@ -27,16 +27,16 @@ def index():
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.118.2">
-    <title>EKS argoCD Pipeline example · Bootstrap v5.3</title>
+    <title>Album example · Bootstrap v5.3</title>
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/EKS argoCD Pipeline/">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/album/">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="static/bootstrap.css" rel="stylesheet">
 
-     
+
   </head>
   <body>
     <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
@@ -90,14 +90,14 @@ def index():
       </ul>
     </div>
 
-    
+
 <header data-bs-theme="dark">
   <div class="collapse text-bg-dark" id="navbarHeader">
     <div class="container">
       <div class="row">
         <div class="col-sm-8 col-md-7 py-4">
           <h4>About</h4>
-          <p class="text-body-secondary">Add some information about the EKS argoCD Pipeline below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.</p>
+          <p class="text-body-secondary">Add some information about the album below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.</p>
         </div>
         <div class="col-sm-4 offset-md-1 py-4">
           <h4>Contact</h4>
@@ -114,7 +114,7 @@ def index():
     <div class="container">
       <a href="#" class="navbar-brand d-flex align-items-center">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="me-2" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
-        <strong>Dashboard</strong>
+        <strong>Demo</strong>
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -130,12 +130,12 @@ def index():
       <div class="col-lg-6 col-md-8 mx-auto">
         <h1 class="fw-light">ArgoCD Dashboard</h1>
         <p class="lead text-body-secondary"></p>
-        
       </div>
-    </div>
+
+
   </section>
 
-  <div class="EKS argoCD Pipeline py-5 bg-body-tertiary">
+  <div class="album py-5 bg-body-tertiary">
     <div class="container">
 
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
@@ -192,7 +192,7 @@ def index():
                     POD_NAMESPACE: </p>
                 </div>
             </div>
-        
+
             </div>
               <div class="d-flex justify-content-between align-items-center">
 
@@ -202,30 +202,43 @@ def index():
           </div>
         </div>
 
+      <div class="row">
+        <div><p><strong>Workflow architecture </strong></p></div>
+        <div>
+        <picture>
+        <img src="static/architecture-cicd.png" class="img-fluid max-width: 90%;">
+        </picture>
+        </div>
+      </div>
+
       </div> <!-- column closer -->
+
 
       </div>
     </div>
   </div>
+
 </main>
-    <footer class="text-body-secondary py-5">
-    <div class="container">
-        <!-- <p class="float-end mb-1">
-        <a href="#">Back to top</a>
-        </p> -->
-        <p>Automated pipeline triggered by <a href="https://github.com/LiboMa/codedemos.git" class="link-primary">https://github.com/LiboMa/codedemos.git</a></p>
-    </div>
-    </footer>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js">	</script>
+
+<footer class="text-body-secondary py-5">
+  <div class="container">
+    <p class="float-end mb-1">
+      <a href="#">Back to top</a>
+    </p>
+    <p>Automated pipeline trigger by <a href="https://github.com/LiboMa/codedemos.git" class="link-primary">https://github.com/LiboMa/codedemos.git</a></p>
+  </div>
+</footer>
+
     </body>
 </html>
+
 '''.format(os.uname().nodename, dt.datetime.now(),node_name, pod_name, pod_ip, pod_namespace)
     return message
 
 
 @app.route('/api/mock')
 def test_api():
-    data = {"message": "Hi there, this app is running on eks/k8s cluster. change from test"}
+    data = {"message": "Hi there, this app is running on eks/k8s cluster. change from test!!"}
     return jsonify(data)
 
 
@@ -240,8 +253,8 @@ def api_postdata():
         #response = {'timestamp':time.time(), 'message':data.decode('utf-8')}
         response = {'timestamp':time.ctime(), 'message': data}
         return  jsonify(response)
-    return 
-    
+    return
+
 
 
 if __name__ == '__main__':
