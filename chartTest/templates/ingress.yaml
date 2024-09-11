@@ -5,7 +5,7 @@ metadata:
   annotations:
     alb.ingress.kubernetes.io/scheme: internet-facing
     alb.ingress.kubernetes.io/target-type: ip
-    alb.ingress.kubernetes.io/group.name: eks-alb-ingress
+    alb.ingress.kubernetes.io/group.name: eks-alb-ingress-test
 spec:
   ingressClassName: alb
   rules:
